@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010-手风琴案例.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		.box{
+			width: 600px;
+			height: 400px;
+			margin:100px auto;
+			border: 1px solid #000;
+		}
+		.box:hover .item{
+			width: 50px;
+		}
+		.item{
+			width: 120px;
+			height: 400px;
+			float: left;
+			overflow: hidden;
+			transition: all 1s;
+		}
+		.box .item:hover{
+			width: 400px;
+		}
+		.item img{
+			width: 400px;
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+	<ul class="box">
+		<li class="item"><img src="image/手风琴1.jpg" alt=""></li>
+		<li class="item"><img src="image/手风琴2.jpg" alt=""></li>
+		<li class="item"><img src="image/手风琴3.jpg" alt=""></li>
+		<li class="item"><img src="image/手风琴4.jpg" alt=""></li>
+		<li class="item"><img src="image/手风琴5.jpg" alt=""></li>
+	</ul>
+</body>
+</html>

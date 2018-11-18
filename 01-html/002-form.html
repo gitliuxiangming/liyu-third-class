@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单</title>
+</head>
+<body>
+	<form action="http://www.baidu.com" method="post">
+		<p>
+			<label for="username">
+				用户名：
+			</label>
+			<input type="text" name="username" id="username" placeholder="请输入用户名" autocomplete="off">
+		</p>
+		<p>
+			<label for="password">
+				密码：
+			</label>
+			<input type="password" name="password" id="password">
+		</p>
+		<p>
+			<input type="radio" name="sex" value="male" checked>男
+			<input type="radio" name="sex" value="female">女
+			<input type="radio" name="sex" value="none">保密
+		</p>
+		<p>
+			<input type="checkbox" name="hobby" value="篮球" checked>篮球
+			<input type="checkbox" name="hobby" value="足球">足球
+			<input type="checkbox" name="hobby" value="排球">排球
+		</p>
+		<p>
+			<input type="submit" value="提交">
+			<input type="button" value="按钮">
+			<input type="reset" value="重置">
+		</p>
+		<p>
+			<select name="" id="">
+				<optgroup label="省份">
+					<option value="zz">
+						郑州
+					</option>
+				</optgroup>
+			</select>
+		</p>
+		<p>
+			<textarea name="" id="" cols="30" rows="10" style="resize:none">
+				
+			</textarea>
+		</p>
+		<p>
+			<input type="color">
+		</p>
+		<img src="../src/image/1.jpg" alt="走丢了">
+		<video src="" controls="" autoplay="" ></video>
+		
+	</form>
+</body>
+</html>
