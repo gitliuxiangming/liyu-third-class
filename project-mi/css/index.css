@@ -9,6 +9,7 @@
 	a{
 		text-decoration: none;
 		color:#424242;
+		cursor: pointer;
 	}
 	.container{
 		width: 1226px;
@@ -82,7 +83,7 @@
 		transition:all 0.5s;
 	}
 	.pup:hover{
-		box-shadow: 0px 10px 10px rgba(0,0,0,0.5);
+		box-shadow: 0px 5px 30px rgba(0,0,0,0.5);
 		transform: translateY(-3px);
 	}
 	.product-item .bg{
@@ -911,28 +912,105 @@
 	}
 	.neirong .nr-bottom .nr-item{
 		width: 296px;
-		height: 415px;
+		height: 420px;
 		margin-left: 14px;
 		background: #fff;
 		overflow: hidden;
+		text-align:center;
+		box-sizing: border-box;
+		padding: 40px 20px;
+		position: relative;
+		transition: all 0.3s;
 	}
 	.neirong .nr-bottom .nr-item:first-child{
 		margin-left: 0px;
+		font-size: 16px;
+		color:#ffac13;
+		border-top: 1px solid #ffac13;
+	}
+	.neirong .nr-bottom .nr-item:nth-child(2){
+		font-size: 16px;
+		color:#83c44e;
+		border-top: 1px solid #83c44e;
+	}
+	.neirong .nr-bottom .nr-item:nth-child(3){
+		font-size: 16px;
+		color:#e53935;
+		border-top: 1px solid #e53935;
+	}
+	.neirong .nr-bottom .nr-item:nth-child(4){
+		font-size: 16px;
+		color:#2196f3;
+		border-top: 1px solid #2196f3;
 	}
 	.neirong .nr-bottom .nr-item .title{
-
+		margin-bottom:10px; 
 	}
 	.neirong .nr-bottom .nr-item .nr-intro{
-
+		height: 100px;
+		margin-bottom: 20px;
+	}
+	.neirong .nr-bottom .nr-item .nr-intro p:nth-child(1){
+		font-size: 20px;
+		font-weight: 400;
+		color:#333;
+		margin-bottom: 10px;
+	}
+	.neirong .nr-bottom .nr-item .nr-intro p:nth-child(2){
+		padding: 0px 25px;
+		font-size: 12px;
+		color:#b0b0b0;
+	}
+	.neirong .nr-bottom .nr-item .nr-intro p:nth-child(3){
+		font-size: 14px;
+		color:#333;
+		margin-top: 15px;
 	}
 	.neirong .nr-bottom .nr-item img{
-
+		cursor: pointer;
 	}
 	.neirong .nr-bottom .nr-item .point{
-
+		position:absolute;
+		left: 50%;
+		margin-left: -29px;
+		bottom:30px;
+	}
+	.neirong .nr-bottom .nr-item .point li{
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background: #aaa;
+		margin-left: 20px;
+	}
+	.neirong .nr-bottom .nr-item .point li.active{
+		border: 2px solid #ff6700;
+		background: #fff;
+		margin-top: -2px;
+	}
+	.neirong .nr-bottom .nr-item .point li:first-child{
+		margin-left: 0px;
 	}
 	.neirong .nr-bottom .nr-item>span{
-
+		position:absolute;
+		top: 50%;
+		margin-top: -24px;
+		width: 20px;
+		height: 48px;
+		line-height: 48px;
+		color:#fff;
+		font-size: 30px;
+	}
+	.neirong .nr-bottom .nr-item>.zuo{
+		left: 0px;
+	}
+	.neirong .nr-bottom .nr-item>.you{
+		right: 0px;
+	}
+	.neirong .nr-bottom .nr-item:hover>span{
+		background: #ccc;
+	}
+	.neirong .nr-bottom .nr-item>span:hover{
+		background: rgba(0,0,0,0.5);
 	}
 /*内容结束*/
 /*视频开始*/
@@ -943,12 +1021,177 @@
 	}
 	.shipin .sp-bottom .sp-item{
 		width: 296px;
-		height: 415px;
+		height: 285px;
 		margin-left: 14px;
 		background: #fff;
 		overflow: hidden;
+		transition: all 0.3s;
+		position: relative;
+		text-align: center;
+		color:#333;
 	}
 	.shipin .sp-bottom .sp-item:first-child{
 		margin-left: 0px;
 	}
+	.shipin .sp-bottom .sp-item img{
+		width: 100%;
+	}
+	.shipin .sp-bottom .sp-item .play:hover,
+	.shipin .sp-bottom .sp-item img:hover~.play{
+		transition: all 0.2s;
+		background: #ff6700;
+		border-color: #ff6700;
+	}
+	.shipin .sp-bottom .sp-item p:nth-child(2){
+		margin: 10px 0px;
+		padding-top: 10px;
+		font-size: 14px;
+	}
+	.shipin .sp-bottom .sp-item p:nth-child(2) a:hover{
+		color:#ff6700;
+	}
+	.shipin .sp-bottom .sp-item p:nth-child(3){
+		font-size: 12px;
+		color:#b0b0b0;
+	}
+	.shipin .sp-bottom .sp-item .play{
+		position: absolute;
+		top: 145px;
+		left: 20px;
+		width: 32px;
+		height: 20px;
+		line-height: 20px;
+		text-align:center;
+		font-size: 14px;
+		color:#fff;
+		border: 2px solid #fff;
+		border-radius: 30px; 
+	}
 /*视频结束*/
+/*页脚开始*/
+	.footer .ft-top{
+		border-bottom: 1px solid #e0e0e0;
+	}
+	.footer .ft-top li{
+		width: 20%;
+		text-align: center;
+		line-height: 80px;
+	}
+	.footer .ft-top li:nth-child(1) a:after,
+	.footer .ft-top li:nth-child(2) a:after,
+	.footer .ft-top li:nth-child(3) a:after,
+	.footer .ft-top li:nth-child(4) a:after{
+		content: '';
+		display: inline-block;
+		width: 1px;
+		height: 20px;
+		background: #757575;
+		margin-left: 50px;
+		vertical-align: middle;
+	}
+	.footer .ft-top li a{
+		font-size: 16px;
+		color: #616161;
+	}
+	.footer .ft-top li a:hover{
+		color:#ff6700;
+	}
+	.footer .ft-top li a i{
+		font-size: 20px;
+		margin-right: 10px;
+	}
+	.footer .ft-bottom .ft-intro{
+		margin-left: 100px;
+		padding: 30px 0px;
+	}
+	.footer .ft-bottom .ft-intro:first-child{
+		margin-left: 0px;
+	}
+	.footer .ft-bottom .ft-intro dt{
+		margin-bottom: 20px;
+		font-size: 14px;
+	}
+	.footer .ft-bottom .ft-intro dd{
+		padding-top: 10px;
+	}
+	.footer .ft-bottom .ft-intro dd a{
+		font-size: 12px;
+		color:#757575;
+	}
+	.footer .ft-bottom .ft-intro dd a:hover{
+		color:#ff6700;
+	}
+	.footer .ft-bottom .ft-phone{
+		width: 20%;
+		margin: 30px 0px;
+		padding-left: 80px;
+		border-left: 1px solid #757575;
+		text-align: center;
+		color: #757575;
+		margin-right: 30px;
+		box-sizing: border-box;	
+	}
+	.footer .ft-bottom .ft-phone p:nth-child(1){
+		color: #ff6700;
+		font-size: 24px;
+		margin-bottom: 10px;
+	}
+	.footer .ft-bottom .ft-phone p:nth-child(2),
+	.footer .ft-bottom .ft-phone p:nth-child(3){
+		font-size: 12px;
+	}
+	.footer .ft-bottom .ft-phone p:nth-child(4) a{
+		color: #ff6700;
+	}
+	.footer .ft-bottom .ft-phone p:nth-child(4){
+		line-height: 30px;
+		text-align: center;
+		border: 1px solid #ff6700;
+		color:#ff6700;
+		margin-top: 30px;
+	}
+/*页脚结束*/
+/*底部开始*/
+	.bottom{
+		padding-top: 30px;
+	}
+	.bottom .bt-2,
+	.bottom .bt-2 a{
+		font-size: 12px;
+		color:#b0b0b0;
+	}
+	.bottom .bt-2{
+		width: 58%;
+		margin-left: 20px;
+	}
+	.bottom .bt-2 ul li{
+		margin-left: 5px;
+	}
+	.bottom .bt-2 ul li a{
+		color:#757575;
+	}
+	.bottom .bt-2 ul li:last-child a:after{
+		display: none;
+	}
+	.bottom .bt-2 ul li a:after{
+		content: '';
+		display: inline-block;
+		width: 1px;
+		height: 10px;
+		background: #b0b0b0;
+		margin-left: 3px;
+	}
+	.bottom .bt-3 a{
+		margin-left: 5px;
+	}
+	.bottom .nbclass{
+		width: 100%;
+		line-height: 50px;
+		text-align: center;
+		font-size: 16px;
+		color:#b0b0b0;
+		margin-top: 20px;
+		user-select: none;
+		letter-spacing: 5px;
+	}
+/*底部结束*/
