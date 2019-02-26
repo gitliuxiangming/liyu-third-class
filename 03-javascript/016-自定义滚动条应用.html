@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>016-自定义滚动条应用.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#container{
+			width: 450px;
+			height: 600px;
+			border: 1px solid #000;
+			margin:100px auto;
+			overflow: hidden;
+		}
+		#content{
+			width: 400px;
+			height: 100%;
+			float: left;
+			position: relative;
+		}
+		#neirong{
+			width: 100%;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			background: #ccc;
+		}
+		#control{
+			float: left;
+			width: 50px;
+			height: 100%;
+			border-left: 1px solid #000;
+			box-sizing: border-box;
+			position: relative;
+		}
+		#box{
+			width: 50px;
+			height: 50px;
+			background: red;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="content">
+			<p id="neirong">
+				原标题为《彻底认清十四世达赖宗教上的虚伪性》—九论深入开展马克思主义“五观”“两论”教育
+
+				十四世达赖自称“一生追随佛陀”“是青年人宗教上的导师”“是慈善的喇嘛”，真相果真如此吗？纵观十四世达赖叛逃祖国几十年来的言行，只要有良心的人都不难发现，他实际上就是一个彻头彻尾披着宗教外衣祸藏乱教的政客。
+
+				十四世达赖宗教上的虚伪性表现在公然违背藏传佛教的出离心。既然是“佛祖的比丘”，就要舍身佛门，精研佛学，超脱世俗的纷争，自度度人。宗教在十四世达赖那里，始终是维护和复辟政教合一封建农奴制的工具，是从事“西藏独立”政治活动的遮羞布。他勾结国际敌对势力，1959年发动武装叛乱，叛乱失败后，彻底投向国际敌对势力的怀抱。叛逃国外以来，他念念不忘“西藏独立”，始终利用宗教影响，长期从事分裂渗透活动，在国内制造骚乱和暴力犯罪事件，“3·14”等一系列事件便是铁证。他还打着“宗教”“人权”“民族”“文化”“环保”等旗号，破坏西藏发展稳定，为“西藏独立”造势。他甚至宣称自己是“印度之子”，简直六亲不认、数典忘祖。
+
+				十四世达赖宗教上的虚伪性表现在公然违背藏传佛教的基本教义。“慈悲为怀，众生平等”是藏传佛教的基本教义，是佛教徒增进宗教修为的指路明灯。然而，十四世达赖罔顾佛教教义，在他统治下的旧西藏，以法典的形式，把人划分为三六九等，下等下级的人，命价只值一根草绳。这哪有一点众生平等的影子！在十四世达赖的统治下，不仅人与人之间是不平等的，就连“神”之间也是不平等的。他以俱力护法神损害他的“政教大业”“健康”为由，禁止供奉该神，挑起信众之间的冲突。事实充分证明，十四世达赖既不遵从藏传佛教基本教义，又毫无禅定之心和出世之念，既没有慈悲为本、普度众生的菩萨心肠，又没有众生平等的佛祖胸襟。为图谋“西藏独立”，十四世达赖发动了武装叛乱，组建“四水六岗卫教军”，对我边境进行袭扰。从上个世纪八十年代末九十年代初的拉萨骚乱，到骇人听闻的“3·14”事件，哪一件不是在杀人放火，哪一件不是把其宗教上的虚伪性让世人看得一清二楚。
+
+				十四世达赖既不坚守“诸恶莫作、众善奉行”的准则，又不放下屠刀立地成佛，早把藏传佛教的基本教义抛在一边，还自诩为藏传佛教“精神领袖”。这样的虚伪世所难见。
+
+				十四世达赖宗教上的虚伪性表现在公然违背藏传佛教的根本戒律。藏传佛教僧众受戒的种类很多，戒杀、戒盗、戒淫、戒妄语是四条根本戒律。然而，口口声声以“释迦牟尼的比丘”自居的十四世达赖，妄言妄行屡屡犯戒。佛教戒律规定，自杀与教人自杀，皆属大恶，是一种严重罪业。十四世达赖漠视生命，教唆、蛊惑普通信教群众自焚，使上当受骗的人丢掉了宝贵的生命，佛祖有灵也会谴责十四世达赖的卑劣行径。十四世达赖无视中国共产党给西藏各族人民带来的福祉，无视西藏短短几十年跨越上千年的巨大成就，妄语连篇，在国际上大肆兜售“西藏没有人权”“西藏的环境遭到破坏”“西藏的文化毁灭”“西藏没有宗教信仰自由”，自欺欺人。罔顾事实，颠倒黑白，释迦牟尼也不会承认他是自己的比丘！
+			</p>
+		</div>
+		<div id="control">
+			<div id="box"></div>
+		</div>
+	</div>
+</body>
+<script>
+	var oContent = document.getElementById('content');
+	var oControl = document.getElementById('control');
+	var oNeirong = document.getElementById('neirong');
+	var oBox = document.getElementById('box');
+	oBox.onmousedown = function(ev){
+		var disY = ev.clientY - oBox.offsetTop;
+		var t = 0;
+		function gundong(){
+			
+			if(t<0){
+				t=0;
+			}else if(t>oControl.clientHeight - oBox.offsetHeight){
+				t = oControl.clientHeight - oBox.offsetHeight;
+			}
+			oBox.style.top = t+ 'px';
+			var scale = t/(oControl.clientHeight - oBox.offsetHeight);
+			oNeirong.style.top = -(oNeirong.offsetHeight - oContent.offsetHeight)*scale+ 'px';
+		}
+		document.onmousemove = function(ev){
+			t = ev.clientY - disY;
+			gundong();
+			console.log(oNeirong.style.top)
+		}
+		oContent.onmousewheel = function(ev){
+			if(ev.wheelDelta>0){
+				t-=10;
+			}else{
+				t+=10;
+			}
+			gundong();
+		}
+		document.onmouseup = function(){
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+	}
+</script>
+</html>

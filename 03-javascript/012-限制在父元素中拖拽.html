@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>012-限制在父元素中拖拽.html</title>
+	<style>
+		#father{
+			width: 400px;
+			height: 400px;
+			background: blue;
+			margin:200px auto;
+			position: relative;
+		}
+		#son{
+			width: 100px;
+			height: 100px;
+			background:red;
+			position: absolute;
+			top:0px;
+			left: 0px;
+		}
+	</style>
+</head>
+<body>
+	<div id="father">
+		<div id="son"></div>
+	</div>
+</body>
+<script>
+	var oBox1 = document.getElementById('father');
+	var oBox2 = document.getElementById('son');
+	oBox2.onmousedown = function(ev){
+		var disX = ev.clientX - oBox2.offsetLeft;
+		var disY = ev.clientY - oBox2.offsetTop;
+		console.log('aa')
+		document.onmousemove = function(ev){
+			var l = ev.clientX - disX;
+			var t = ev.clientY - disY;
+			if(l<0){
+				l=0;
+			}else if(l>oBox1.clientWidth - oBox2.offsetWidth){
+				l = oBox1.clientWidth - oBox2.offsetWidth;
+			}
+			if(t<0){
+				t=0;
+			}else if(t>oBox1.clientHeight - oBox2.offsetHeight){
+				t = oBox1.clientHeight - oBox2.offsetHeight;
+			}
+			oBox2.style.left = l + 'px';
+			oBox2.style.top = t + 'px';
+		}
+		document.onmouseup = function(){
+			document.onmousemove = null;
+		}
+		
+	}
+</script>
+</html>

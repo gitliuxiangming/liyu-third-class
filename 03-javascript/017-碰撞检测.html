@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>017-碰撞检测.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#big{
+			width: 300px;
+			height: 300px;
+			background: blue;
+			position: absolute;
+			top: 200px;
+			left: 200px;
+		}
+		#small{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
+	</style>
+</head>
+<body>
+	<div id="big"></div>
+	<div id="small"></div>
+</body>
+<script>
+	var oB = document.getElementById('big');
+	var oS = document.getElementById('small');
+	oS.onmousedown = function(ev){
+		var disX = ev.clientX - oS.offsetLeft;
+		var disY = ev.clientY - oS.offsetTop;
+		console.log('aa')
+		document.onmousemove = function(ev){
+			oS.style.left = ev.clientX - disX + 'px';
+			oS.style.top = ev.clientY - disY + 'px';
+			console.log(oS.offsetLeft)
+			console.log(oS.offsetWidth)
+			if( oS.offsetLeft+oS.offsetWidth >oB.offsetLeft
+				&& oS.offsetTop+oS.offsetHeight >oB.offsetTop
+				&& oB.offsetLeft+oB.offsetWidth > oS.offsetLeft
+				&& oB.offsetTop+oB.offsetHeight > oS.offsetTop
+				){
+				oB.style.background = 'green';
+			}else{
+				oB.style.background = 'blue';
+			}
+		}
+		document.onmouseup = function(){
+			document.onmousemove = null;
+		}
+	}
+</script>
+</html>

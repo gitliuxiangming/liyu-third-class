@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>007-数码时钟.html</title>
+	<style>
+		body{
+			background: black;
+		}
+		.box{
+			text-align: center;
+			margin-top: 200px;
+			color:white;
+			font-size: 40px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box" id="box">
+		<img src="image/0.png" alt="">
+		<img src="image/0.png" alt="">:
+		<img src="image/0.png" alt="">
+		<img src="image/0.png" alt="">:
+		<img src="image/0.png" alt="">
+		<img src="image/0.png" alt="">
+	</div>
+</body>
+<script>
+	function to2Str(num){
+		return num < 10 ? '0'+num : ''+num;
+	}
+	var oBox = document.getElementById('box');
+	var aImg = oBox.children;
+	function timer(){
+		var now = new Date();
+		var oHour = now.getHours();
+		var oMin = now.getMinutes();
+		var oSecond = now.getSeconds();
+		var time = to2Str(oHour)+to2Str(oMin)+to2Str(oSecond);
+		for(var i = 0;i<aImg.length;i++){
+			aImg[i].src = 'image/'+time.charAt(i)+'.png';
+		}
+	}
+	setInterval(timer,1000);
+	timer();
+	
+</script>
+</html>

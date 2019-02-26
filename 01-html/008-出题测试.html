@@ -2,33 +2,22 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>四大名著</title>
+	<title>Document</title>
 	<style>
-		*{
-			color:#aaa;
-		}
-		div{
-			width: 10px;
-			height: 10px;
-			line-height: 15px;
-			margin:0px 5px;
-			padding: 5px;
-			min-width: 15px;
-			border: 5px solid #000;
-			background: red;
-			box-sizing: border-box;
-		}
-		.main div{
-			color:#ccc;
-		}
-		div .box1{
-			color:#ddd;
+		#box{
+			width: 100px;
+			height: 100px;
 		}
 	</style>
+	<script>
+		function test(){
+			document.getElementById('box').style.color = 'blue';
+			document.getElementById('box').style.backgroundColor = 'red';
+
+		}
+	</script>
 </head>
 <body>
-	<div class="main">
-		
-	</div>
+	<div id="box" onclick = "test">我是div</div>
 </body>
 </html>

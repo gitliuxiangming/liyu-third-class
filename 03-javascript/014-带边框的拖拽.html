@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>014-带边框的拖拽.html</title>
+	<style>
+		#box{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			top:0px;
+			left: 0px;
+		}
+		.border{
+			border: 2px dashed #000;
+			
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	var oBox = document.getElementById('box');
+	oBox.onmousedown = function(ev){
+		var oBorder = document.createElement('div');
+		var disX = ev.clientX - oBox.offsetLeft;
+		var disY = ev.clientY - oBox.offsetTop;
+		
+		oBorder.style.position = 'absolute';
+		oBorder.style.top = oBox.offsetTop + 'px';
+		oBorder.style.left = oBox.offsetLeft + 'px';
+		oBorder.style.width = oBox.offsetWidth + 'px';
+		oBorder.style.height = oBox.offsetHeight + 'px';
+		oBorder.className = 'border';
+		document.body.appendChild(oBorder);
+		document.onmousemove = function(ev){
+			oBorder.style.left = ev.clientX - disX + 'px';
+			oBorder.style.top = ev.clientY - disY + 'px';
+		}
+		document.onmouseup = function(){
+			oBox.style.left = oBorder.offsetLeft + 'px';
+			oBox.style.top = oBorder.offsetTop + 'px';
+			document.body.removeChild(oBorder);
+			oBorder.onmousemove = null;
+			document.onmouseup = null;
+		}
+	}
+</script>
+</html>

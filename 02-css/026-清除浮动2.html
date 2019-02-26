@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>026-清楚浮动2.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			background-color: red;
+			text-align: center;
+			/*margin-bottom: 20px;*/
+		}
+		.box1 p{
+			width: 50px;
+			background-color: tomato;
+			float: left;
+		}
+		.box2{
+			background-color: blue;
+			text-align: center;
+			/*clear: left;*/
+			/*clear: right;*/
+			clear: both;
+			/*margin-top: 20px;*/
+		}
+		.box2 p{
+			width: 50px;
+			background-color: pink;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">
+		<p>1</p>
+		<p>2</p>
+		<p>3</p>
+	</div>
+	<div class="box2">
+		<p>+1+</p>
+		<p>+2+</p>
+		<p>+3+</p>
+	</div>
+</body>
+</html>

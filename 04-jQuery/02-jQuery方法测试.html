@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02-jQuery方法测试.html</title>
+</head>
+<body>
+	<input type="text" class="box" data-meg="12138" value="12138" />
+	<div class="box" id="box">2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+</body>
+<script src="jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		console.log($('input').eq(0))
+		console.log($('.box').eq(0))
+	})
+</script>
+</html>

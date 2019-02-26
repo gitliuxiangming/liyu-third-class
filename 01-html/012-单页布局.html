@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>单页布局.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		.nav{
+			width: 100%;
+			background: rgba(0,0,0,0.6);
+			overflow: hidden;
+		}
+		.nav .nav-item{
+			width: 20%;
+			float: left;
+			text-align: center;
+			line-height: 50px;
+			font-size: 20px;
+			font-weight: 900;
+		}
+		.nav .nav-item:nth-child(2){
+			background: rgba(0,0,0,0.5);
+			color: #fff;
+		}
+		.content{
+			width: 100%;
+			/*height: 800px;*/
+			text-align: center;	
+			padding-top: 20px;
+			background: #f9f9f9;
+			overflow: hidden;
+		}
+		.content div{
+			height: 220px;
+			padding-top: 10px;
+			font-weight: bold;
+		}
+		.content .zhanshi img{
+			width: 240px;
+			height: 200px;
+		}
+		.share{
+			width: 100%;
+			text-align: center;
+			line-height: 50px;
+			background: rgba(0,0,0,0.3);
+			overflow: hidden;
+		
+		}
+		.share .item{
+			float: left;
+			width: 33%;
+		}
+	</style>
+</head>
+<body>
+	<ul class="nav">
+		<li class="nav-item">东岳泰山</li>
+		<li class="nav-item">西岳华山</li>
+		<li class="nav-item">北岳恒山</li>
+		<li class="nav-item">南岳衡山</li>
+		<li class="nav-item">中岳嵩山</li>
+	</ul>
+	<div class="content">
+		<div class="jianjie">
+			<h2>东岳泰山简介</h2>
+			<p>内容</p>
+		</div>
+		<div class="zhanshi">
+			<h2>风景展示</h2>
+			内容
+		</div>
+		<div class="gonglue">
+			<h2>旅行攻略</h2>
+			<p>内容
+	        </p>
+		</div>
+	</div>
+	<ul class="share">
+		<li class="item">分享到QQ</li>
+		<li class="item">分享到微信</li>
+		<li class="item">分享到微博</li>
+	</ul>
+</body>
+</html>

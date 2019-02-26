@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>008-倒计时.html</title>
+	<style>
+		body{
+			background: black;
+		}
+		.box{
+			text-align: center;
+			margin-top: 200px;
+			color:white;
+			font-size: 40px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box" id="box">
+		<img src="image/0.png" alt="">
+		<img src="image/0.png" alt="">:
+		<img src="image/0.png" alt="">
+		<img src="image/0.png" alt="">:
+		<img src="image/0.png" alt="">
+		<img src="image/0.png" alt="">
+	</div>
+</body>
+<script>
+	function to2Str(num){
+		return num < 10 ? '0'+num : ''+num;
+	}
+	var oBox = document.getElementById('box');
+	var aImg = oBox.children;
+	var timer = 0;
+	var orderTime = new Date('2018-12-07 19:00:00');
+	var endTime = orderTime.getTime();
+	function time(){
+		var allTime = (endTime - Date.now())/1000;
+		if(allTime <= 0 ){
+			allTime = 0;
+			clearInterval(timer);
+		}
+		var oH = parseInt(allTime/3600);
+		var oM = parseInt((allTime%3600)/60);
+		var oS = parseInt(allTime%3600)%60;
+		var time = to2Str(oH)+to2Str(oM)+to2Str(oS);
+		for(var i =0;i<aImg.length;i++){
+			aImg[i].src = 'image/'+time.charAt(i)+'.png';
+		}
+
+	}
+	timer = setInterval(time,1000);
+	time();
+
+	
+</script>
+</html>
