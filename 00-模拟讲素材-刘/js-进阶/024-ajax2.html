@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>024-ajax2.html</title>
+</head>
+<body>
+	<button id="btn">发送请求</button>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){
+		//1.创建ajax对象
+		var oAjax = new XMLHttpRequest();
+		// console.log(oAjax)
+		//2.建立连接
+		console.log('没调用open之前',oAjax.readyState);
+		oAjax.open('GET','http://127.0.0.1:3000/025-data.json',true);
+		//3.发送请求
+		console.log('没调用send之前',oAjax.readyState);
+		oAjax.send();
+		//4.监听事件，接受数据
+		oAjax.onreadystatechange = function(){
+			console.log('in onreadystatechange',oAjax.readyState);
+			if(oAjax.readyState == 4){//数据完全返回
+				// console.log(oAjax.status)
+				if(oAjax.status == 200){
+					// console.log(oAjax.responseText);
+					try{
+						var obj = JSON.parse(oAjax.responseText);
+						console.log(obj);
+					}catch(e){
+						console.log(e)
+					}
+					
+				}else{
+					console.log('err')
+				}
+			}
+		}
+	}
+</script>
+</html>

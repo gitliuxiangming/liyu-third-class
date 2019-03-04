@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>011-数组排序-冒泡排序.html</title>
+	<script>
+		var arr = [3,10,2,6,11,20];
+		//[2,10,3,6,11,20]
+		//[2,3,10,6,11,20]
+		//[2,3,6,10,11,20]
+		//[2,3,6,10,11,20]
+		//[2,3,6,10,11,20]
+		console.log(":::1",arr)
+		var arr1 = arr.sort();
+		console.log(":::2",arr)
+		console.log(":::3",arr1);
+		var tmp;
+		for(var i = 0;i<arr.length;i++){
+			for(var j = i+1;j<arr.length;j++){
+				if(arr[i]>arr[j]){
+					tmp = arr[i];
+					arr[i] = arr[j];
+					arr[j] = tmp;
+				}
+			}
+		}
+		console.log(":::4",arr)
+		console.log(":::5",arr1);
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

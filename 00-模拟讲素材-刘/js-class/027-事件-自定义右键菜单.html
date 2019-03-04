@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>027-事件-自定义右键菜单.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#menu{
+			position: relative;
+			top:0px;
+			left: 0px;
+			width: 200px;
+			height: 400px;
+			background: gray;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="menu"></div>
+</body>
+<script>
+	var oMenu = document.getElementById('menu')
+	document.oncontextmenu = function(ev){
+		oMenu.style.display = 'block';
+		// return false;
+		ev.preventDefault();
+		//ev.stopPropagation() 用来阻止冒泡的
+		// console.log(ev.clientX,ev.clientY)
+		oMenu.style.top = ev.clientY + 'px';
+		oMenu.style.left = ev.clientX + 'px';
+	}
+	document.addEventListener('click',function(){
+		oMenu.style.display = 'none';
+	},false)
+	oMenu.addEventListener('click',function(ev){
+		ev.stopPropagation();		
+	},false)
+</script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010-面向对象高级-继承3.html</title>
+	<script>
+		function Person(name,age){
+			// console.log('调用父类');
+			this.name = name;
+			this.age = age;
+		}
+		Person.prototype.showName = function(){
+			console.log('I am '+ this.name);
+		}
+		Person.prototype.showAge = function(){
+			console.log('I am '+this.age+' years old');
+		}
+		Person.prototype.EYES = 3;
+		Object.defineProperty(Person.prototype,'sayHi',{
+			value:function(){
+				console.log('hi...')
+			},
+			enumerable:false
+		})
+		console.log(Person.prototype)
+		function Student(name,age,major){
+			Person.call(this,name,age);//属性的继承
+			this.major = major;
+		}
+
+		//方法的继承
+		Student.prototype = new Person();
+		Student.prototype.constructor = Student;
+		console.log(Student.prototype);
+
+
+		var s1 = new Student('tom',18,'computer')
+		console.log(s1)
+		s1.sayHi();
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

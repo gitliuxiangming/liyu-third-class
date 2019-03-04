@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>034-正则-边界控制案例.html</title>
+</head>
+<body>
+	<input type="text" id="txt">
+	<button id="btn">检测</button>
+</body>
+<script>
+	var oTxt = document.getElementById('txt')
+	var oBtn = document.getElementById('btn')
+	/*
+	oBtn.onclick = function(){
+		//邮箱校验
+		//719327306@qq.com
+		//_ladfdf@163.com
+		
+		var reg = /^\w+@[0-9a-z]+\.[a-z0-9]{2,5}$/;
+		if(reg.test(oTxt.value)){
+			alert('内容合法');
+		}else{
+			alert('内容不合法');
+		}
+	}
+	*/
+	/*
+	//单词边界
+	var str = 'this is a cat';
+	var reg = /\bis\b/;
+	console.log(str.replace(reg,"*"));
+	*/
+	/*
+	//URL解析
+	var str = 'this si  a url http://www.kuazhu.com';
+	var reg = /([a-z]+:\/\/)([a-z]+)\.(\w+)\.(\w{2,5})/;
+	console.log(str.match(reg,"*"));
+	*/
+	//将年月日替换成月日年
+	var str = 'today is 2019-01-27';
+	var reg = /(\d{4})-(\d{2})-(\d{2})/;
+	console.log(str.replace(reg,'$2/$3/$1'))
+</script>
+</html>

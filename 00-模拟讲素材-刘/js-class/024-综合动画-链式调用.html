@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>024-综合动画-链式调用.html</title>
+<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 100px;
+			height: 100px;
+			background: #f00;
+		}
+	</style>
+	
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	function animation(obj,attr,iTarget,sudu,fn){
+		clearInterval(obj.time);
+		var speed=0;
+		
+		obj.time = setInterval(function(){
+			var stop=false;
+			var dqz=parseFloat(getComputedStyle(obj,true)[attr]);
+			if(attr == 'opacity'){
+				dqz=dqz*100;
+			}
+			if (sudu) {
+				if(dqz<=iTarget){
+					speed= 5;
+				}else{
+					speed= -5;
+				}
+				if (Math.abs(iTarget-dqz)<Math.abs(speed)) {
+					stop=true;
+					if(attr == 'opacity'){
+						obj.style[attr]=iTarget/100;
+					}else{
+						obj.style[attr] = iTarget+'px';
+					} 
+				}
+			}else{
+				speed=(iTarget-dqz)/10;
+				speed=speed>0 ? Math.ceil(speed) : Math.floor(speed);
+				if (!speed) {
+					stop=true;
+				}
+			}					
+			if(stop){
+				clearInterval(obj.time);
+				if (fn) {
+					fn();
+				}
+			}else{
+				if(attr == 'opacity'){
+					obj.style[attr]=(dqz+speed)/100;
+				}else{
+					obj.style[attr] = dqz+speed+'px';
+				}
+			}
+		},30)
+	}
+			
+	var oDiv = document.getElementById('box');
+	oDiv.onmouseover = function(){
+		animation(oDiv,'height',500,false,function(){
+			animation(oDiv,'width',500,false,function(){
+				animation(oDiv,'opacity',50,false)
+			})
+		});
+	}
+	oDiv.onmouseout = function(){
+		animation(oDiv,'opacity',100,false,function(){
+			animation(oDiv,'width',100,false,function(){
+				animation(oDiv,'height',100,false)
+			})
+		});
+	}
+			
+	</script>
+</html>

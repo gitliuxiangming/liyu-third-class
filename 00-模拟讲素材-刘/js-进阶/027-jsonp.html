@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>027-jsonp.html</title>
+</head>
+<body>
+	<button id="btn">发送请求</button>
+	<input type="text" id="txt">
+</body>
+<script>
+	function handleCallbacl(obj){
+		console.log(obj)
+	}
+</script>
+<script>
+	var oBtn =  document.getElementById('btn');
+	var oTxt =  document.getElementById('txt');
+	oTxt.oninput = function(){
+		var script = document.createElement('script');
+		script.src = "https://suggest.taobao.com/sug?code=utf-8&q="+oTxt.value+"&_ksTS=1550477996649_898&callback=handleCallbacl&k=1&area=c2c&bucketid=19";
+		document.body.appendChild(script);
+	}
+</script>
+</html>

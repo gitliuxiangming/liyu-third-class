@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>005-属性的定义.html</title>
+	<script>
+		function Person(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		Person.prototype.showName = function(){
+			console.log('I am '+ this.name);
+		}
+		Person.prototype.showAge = function(){
+			console.log('I am '+this.age+' years old');
+		}
+		var p1 = new Person('tom',18);
+		// p1.EYES = 2;
+		Object.defineProperty(p1,'EYES',{
+			value:2,
+			enumerable:true,//是否可以被枚举
+			writable:true,//表示是否可赋值
+			configurable:true//表示是否可以删除，还可以表示是否可以修改属性的权限
+		})
+		// delete p1.EYES
+		/*
+		Object.defineProperty(p1,'EYES',{
+			value:2,
+			enumerable:false,//是否可以被枚举
+			writable:true,//表示是否可赋值
+		})
+		*/
+		console.log(p1)
+		for(var attr in p1){
+			console.log(attr,p1[attr])
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

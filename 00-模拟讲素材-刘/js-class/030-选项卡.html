@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选项卡案例</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style:none;
+		}
+		.btns{
+			overflow: hidden;
+		}
+		.btns li{
+			float: left;
+			width: 100px;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			border: 1px solid #000;
+			box-sizing: border-box;
+		}
+		.content{
+			position: relative;
+		}
+		.content li{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 400px;
+			height: 400px;
+			line-height: 400px;
+			text-align: center;
+			background: gray;
+			display: none;
+		}	
+		.active{
+			background: #ff6700;
+			color:#fff;
+		}
+	</style>
+	
+</head>
+<body>
+	<ul class="btn-list btns">
+		<li class="active">第一个</li>
+		<li>第二个</li>
+		<li>第三个</li>
+		<li>第四个</li>
+	</ul>
+	<ul class="container-list content">
+		<li style="display:block;">第一个内容</li>
+		<li>第二个内容</li>
+		<li>第三个内容</li>
+		<li>第四个内容</li>
+	</ul>
+</body>
+<script>
+	var aBtn = document.querySelectorAll('.btn-list li');
+	var aContainer = document.querySelectorAll('.container-list li');
+	for(var i=0;i<aBtn.length;i++){
+		aBtn[i].index = i;
+		aBtn[i].onclick = function(){
+			for(var j=0;j<aBtn.length;j++){
+				aBtn[j].className = '';
+				aContainer[j].style.display = 'none';
+			}
+			this.className = 'active';
+			aContainer[this.index].style.display = 'block';
+		}
+	}
+</script>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>021-匀速动画基础.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			position: absolute;
+			top: 100px;
+			left: 800px;
+			width: 200px;
+			height: 200px;
+			background: red;
+		}
+		.line{
+			position: absolute;
+			top:0px;
+			left: 400px;
+			width: 1px;
+			height: 500px;
+			background: #000;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">移动</button>
+	<div id="box"></div>
+	<div class="line"></div>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	var oBox = document.getElementById('box');
+	var timer = null;
+
+	oBtn.onclick = function(ev){
+		clearInterval(timer);
+		var iSpeed = 0;
+		
+		timer = setInterval(function(){
+			if(oBox.offsetLeft<400){
+				iSpeed = 9;
+			}else{
+				iSpeed = -9;
+			}
+			console.log(oBox.offsetLeft);
+			/*
+			if(oBox.offsetLeft == 400){
+				clearInterval(timer);
+			}*/
+			if(Math.abs(400-oBox.offsetLeft) < Math.abs(iSpeed)){
+				clearInterval(timer);
+				oBox.style.left = 400 + 'px';
+			}else{
+				/*
+				if(oBox.offsetLeft<400){
+					oBox.style.left = oBox.offsetLeft + 10 +'px' ;
+				}
+				else{
+					oBox.style.left = oBox.offsetLeft - 10 +'px' ;
+				}
+				*/
+				oBox.style.left = oBox.offsetLeft + iSpeed +'px' ;
+			}
+		},30)
+	}
+</script>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>05-出题测验.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#intro{
+			width: 400px;
+			height: 400px;
+			border: 1px solid #000;
+			margin:20px auto;
+		}
+		.head{
+			width: 100px;
+			height: 100px;
+			background: black;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div id="intro">
+		<div class="head"></div>
+		<div class="head"></div>
+		<div class="head"></div>
+	</div>
+	<div id="intro">
+		<div class="head"></div>
+		<div class="head"></div>
+		<div class="head"></div>
+	</div>
+	<div id="intro">
+		<div class="head"></div>
+		<div class="head"></div>
+		<div class="head"></div>
+	</div>
+</body>
+<script type="text/javascript" src="jQuery-files/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+	   // $('div').on('mouseenter',function(){
+	   // 		$(this).css({
+	   // 			background:"red"
+	   // 		})
+	   // })
+	   //  $('div').on('mouseleave',function(){
+	   // 		$(this).css({
+	   // 			background:"blue"
+	   // 		})
+	   // })
+	   $('div').hover(function(){
+	   		$(this).css({
+    			background:"red"
+    		})
+	   },function(){
+	   		$(this).css({
+    			background:"blue"
+    		})
+	   })
+	});
+</script>
+</html>

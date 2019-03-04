@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>006-属性的定义-定义多个属性.html</title>
+	<script>
+		function Person(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		Person.prototype.showName = function(){
+			console.log('I am '+ this.name);
+		}
+		Person.prototype.showAge = function(){
+			console.log('I am '+this.age+' years old');
+		}
+		Person.prototype.EYES = 3;
+		var p1 = new Person('tom',18);
+		//定义多个属性
+		Object.defineProperties(p1,{
+			EYES:{
+				value:2,
+				enumerable:true,
+				writable:true,
+				configurable:true
+			},
+			LEGS:{
+				value:2,
+				enumerable:true,
+			}
+		});
+		/*
+		p1.EYES = 4;
+		p1.LEGS = 4;
+		delete p1.EYES;
+		delete p1.LEGS;
+		*/
+
+		console.log(p1)
+		for(var attr in p1){
+			console.log(attr,p1[attr])
+		}
+		console.log(Object.getOwnPropertyDescriptor(p1,'LEGS'))
+		console.log(Object.getOwnPropertyDescriptor(Person.prototype,'LEGS'))
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

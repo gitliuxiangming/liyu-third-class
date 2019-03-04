@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>025-综合动画-多值动画.html</title>
+<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 100px;
+			height: 100px;
+			background: #f00;
+			opacity: 0.3;
+		}
+	</style>
+	
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	function animation(obj,options,sudu,fn){
+		clearInterval(obj.time);
+		var speed=0;
+		
+		obj.time = setInterval(function(){
+			var stop=false;
+			//定义控制关闭定时器的变量
+			var isAllStop = true;
+			//遍历对象
+			for(var attr in options){
+				//获取当前值
+				var current=parseFloat(getComputedStyle(obj,true)[attr]);
+				if(attr == 'opacity'){
+					current=current*100;
+				}
+				//匀速运动
+				if (sudu) {
+					if(current<=options[attr]){
+						speed= 5;
+					}else{
+						speed= -5;
+					}
+					//达到当前值
+					if(Math.abs(options[attr]-current)<Math.abs(speed)){
+						if(attr == 'opacity'){
+							obj.style[attr]=options[attr]/100;
+						}else{
+							obj.style[attr] = options[attr]+'px';
+						} 
+						//终止当前的动画
+						stop=true;
+					}else{
+						isAllStop = false;
+					}
+				//减速运动
+				}else{
+					speed=(options[attr]-current)/10;
+					speed=speed>0 ? Math.ceil(speed) : Math.floor(speed);
+					//达到当前值
+					if (!speed) {
+						stop=true;
+					}else{
+						isAllStop = false;
+					}
+				}					
+				if(!stop){
+					if(attr == 'opacity'){
+						obj.style[attr]=(current+speed)/100;
+					}else{
+						console.log('aaa')
+						obj.style[attr] = current+speed+'px';
+					}
+				}
+				if(isAllStop){
+					console.log('adfasdfasfasdf')
+					clearInterval(obj.time);
+					if (fn) {
+						fn();
+					}
+				}
+			}
+		},30)
+	}
+			
+	var oDiv = document.getElementById('box');
+	oDiv.onmouseover = function(){
+		animation(oDiv,{width:400,height:400,opacity:100},true)
+	}
+	oDiv.onmouseout = function(){
+		
+	}
+			
+	</script>
+</html>

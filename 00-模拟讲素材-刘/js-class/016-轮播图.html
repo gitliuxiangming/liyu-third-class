@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>016-轮播图.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		.box{
+			width: 1226px;
+			height: 460px;
+			border: 1px solid #000;
+			margin:100px auto;
+			position: relative;
+			overflow: hidden;
+			cursor: pointer;
+		}
+		.box .img-box .img-item{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			transition: all 1s;
+			opacity: 0;
+		}
+		.box .img-box .img-item img{
+			width: 100%;
+			height: 100%;
+		}
+		.box .btn-box .btn{
+			position: absolute;
+			top:50%;
+			margin-top: -30px;
+			width: 40px;
+			height: 60px;
+			background: rgba(0,0,0,0.5);
+			font-size: 30px;
+			color: #fff;
+			line-height: 60px;
+			text-align: center;
+			z-index: 999;
+		}
+		.box .btn-box .btn:hover{
+			background: rgba(0,0,0,0.8);
+		}
+		.box .btn-box .left-btn{
+			left: 0px;
+		}
+		.box .btn-box .right-btn{
+			right: 0px;
+		}
+		.box .btns{
+			position: absolute;
+			bottom: 20px;
+			right: 20px;
+			z-index: 999;
+		}
+		.box .btns .btn-item{
+			float: left;
+			width: 14px;
+			height: 14px;
+			border: 2px solid #666;
+			border-radius: 50%;
+			box-sizing: border-box;
+			margin-left: 15px;
+		}
+		.box .btns .btn-item:hover,
+		.box .btns .btn-item.active{
+			background: #fff;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<ul class="img-box">
+			<li class="img-item" style="z-index:999; opacity:1;"><img src="images/carousel1.jpg" alt=""></li>
+			<li class="img-item"><img src="images/carousel2.jpg" alt=""></li>
+			<li class="img-item"><img src="images/carousel3.jpg" alt=""></li>
+			<li class="img-item"><img src="images/carousel4.jpg" alt=""></li>
+			<li class="img-item"><img src="images/carousel5.jpg" alt=""></li>
+		</ul>
+		<div class="btn-box">
+			<span class="left-btn btn">&lt;</span>
+			<span class="right-btn btn">&gt;</span>
+		</div>
+		<ul class="btns">
+			<li class="btn-item active"></li>
+			<li class="btn-item"></li>
+			<li class="btn-item"></li>
+			<li class="btn-item"></li>
+			<li class="btn-item"></li>
+		</ul>
+	</div>
+</body>
+<script>
+	function tab(){
+		for(var i=0;i<aImg.length;i++){
+			aImg[i].parentNode.style.zIndex = 0;
+			aImg[i].parentNode.style.opacity = 0;
+			aBtn[i].className = 'btn-item';
+		}
+		aImg[now].parentNode.style.zIndex = 999;
+		aImg[now].parentNode.style.opacity = 1;
+		aBtn[now].className = 'btn-item active';
+	}
+	var oBox = document.querySelector('.box');
+	var aImg = document.querySelectorAll('.img-box .img-item img');
+	var aBtn = document.querySelectorAll('.btns .btn-item');
+	var leftBtn = document.querySelector('.btn-box .left-btn');
+	var rightBtn = document.querySelector('.btn-box .right-btn');
+	var now = 0;
+	var timer;
+	//下一张
+	rightBtn.onclick = function(){
+		now++;
+		if(now>=aImg.length){
+			now = 0;
+		}
+		tab();
+	}
+	//上一张
+	leftBtn.onclick = function(){
+		now--;
+		if(now<0){
+			now = aImg.length-1;
+		}
+		tab();
+	}
+	/*
+	//底部按钮
+	for(var i=0;i<aBtn.length;i++){
+		aBtn[i].index = i;
+		aBtn[i].onclick = function(){
+			now = this.index;
+			tab();
+		}
+	}
+	//自动轮播
+	timer = setInterval(rightBtn.onclick,2000);
+	oBox.onmouseenter = function(){
+		clearInterval(timer);
+	}
+	oBox.onmouseleave = function(){
+		timer = setInterval(rightBtn.onclick,2000);
+	}
+	*/
+</script>
+</html>

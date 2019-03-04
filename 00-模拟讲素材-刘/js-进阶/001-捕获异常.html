@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001-捕获异常.html</title>
+	<script>
+		function sum(num){
+			try{
+				if(isNaN(parseInt(num))){
+					//抛出异常
+					throw new Error('it is not a number');
+				}
+			}catch(e){
+				//捕获异常并处理
+				console.log(e);
+			}
+			finally{
+				console.log('finally:::');
+			}
+			var result = 0;
+			for(var i=0;i<=num;i++){
+					result += i;
+				}
+			return result;
+		}
+		var total = sum('a');
+		console.log(total)
+		function handleNum(num){
+			return num*10;
+		}
+		console.log(handleNum(total))
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

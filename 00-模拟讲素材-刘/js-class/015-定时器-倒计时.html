@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>015-定时器-倒计时.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background: #000;
+		}
+		#timer{
+			margin-top: 300px;
+			text-align: center;
+			font-size: 30px;
+			font-weight: 900;
+			color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<div id="timer">
+		
+	</div>
+</body>
+<script>
+	function to2str(time){
+		if(time<10){
+			time =  '0'+time;
+		}
+		return time;
+	}
+	
+	var oTimer = document.getElementById('timer');
+	var endTime = new Date('2019-01-23 15:40:40')
+	var endTimeSeconds = endTime.getTime();
+	var timer = 0;
+	function timeChange(){
+		var allSeconds = (endTimeSeconds - Date.now())/1000;
+		if(allSeconds <= 0){
+			allSeconds = 0;
+			clearInterval(timer);
+		}
+		var h = parseInt(allSeconds/3600);
+		var m = parseInt((allSeconds%3600)/60);
+		var s = parseInt((allSeconds%3600)%60);
+		oTimer.innerHTML = '距离开始还有'+to2str(h)+'小时'+to2str(m)+'分钟'+to2str(s)+'秒';
+	}
+	
+	timer = setInterval(timeChange,500);
+	timeChange();
+</script>
+</html>

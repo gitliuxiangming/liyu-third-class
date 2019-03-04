@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>003-局部变量.html</title>
+	<script>
+		function fn(){
+			var a = 1;
+			console.log("fn",a)
+			function fn1(){
+				console.log("fn1",a);
+			}
+			fn1();
+		}
+
+		fn();
+		console.log("global",a);
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

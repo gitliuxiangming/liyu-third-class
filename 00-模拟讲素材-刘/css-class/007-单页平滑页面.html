@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>007-单页平滑页面.html</title>
+	<link rel="stylesheet" href="css/iconfont/iconfont.css">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		a{
+			text-decoration: none;
+		}
+		.nav>input:checked + a{
+			color:#ff4c00;
+		}
+		.nav>input:hover + a{
+			background: rgba(0,0,0,0.6);
+		}
+		.nav>input,.nav>a{
+			position: fixed;
+			top: 0px;
+			width: 20%;
+			height: 34px;
+			line-height: 34px;
+			text-align: center;
+			cursor: pointer;
+		}
+		.nav>a{
+			background: rgba(0,0,0,0.5);
+			font-size: 24px;
+			color: #fff; 
+			z-index: 1;
+		}
+		.nav>a i{
+			margin-right: 5px;
+			font-size: 24px;
+		}
+		.nav>input{
+			z-index: 999;
+			opacity: 0;
+		}
+		#ctrl1,#ctrl1 + a{
+			left:0%;
+		}
+		#ctrl2,#ctrl2 + a{
+			left:20%;
+		}
+		#ctrl3,#ctrl3 + a{
+			left:40%;
+		}
+		#ctrl4,#ctrl4 + a{
+			left:60%;
+		}
+		#ctrl5,#ctrl5 + a{
+			left:80%;
+		}
+		html,body{
+			height: 100%;
+		}
+		.nav{
+			height:100%;
+			overflow: hidden;
+		}
+		.content{
+			height: 100%;
+			margin-top: 34px;
+			transition: all 0.5s;
+		}
+		.nav .content>div{
+			height: 100%;
+			text-align: center;
+			font-size: 50px;
+			background-size: 100% 100%;	
+			
+		}
+		.content .content-1{
+			background-image: url(image/ph1.jpg);
+		}
+		.content .content-2{
+			background-image: url(image/ph2.jpg);
+		}
+		.content .content-3{
+			background-image: url(image/ph3.jpg);
+		}
+		.content .content-4{
+			background-image: url(image/ph4.jpg);
+		}
+		.content .content-5{
+			background-image: url(image/ph5.jpg);
+		}
+		#ctrl1:checked ~ .content{
+			transform: translateY(0px);
+		}
+		#ctrl2:checked ~ .content{
+			transform: translateY(-100%);
+		}
+		#ctrl3:checked ~ .content{
+			transform: translateY(-200%);
+		}
+		#ctrl4:checked ~ .content{
+			transform: translateY(-300%);
+		}
+		#ctrl5:checked ~ .content{
+			transform: translateY(-400%);
+		}
+		#ctrl1:checked ~ .content .content-1{
+			animation: sport 0.5s linear 0s 1 normal;
+		}
+		#ctrl2:checked ~ .content .content-2{
+			animation: sport 0.5s linear 0s 1 normal;
+		}
+		#ctrl3:checked ~ .content .content-3{
+			animation: sport 0.5s linear 0s 1 normal;
+		}
+		#ctrl4:checked ~ .content .content-4{
+			animation: sport 0.5s linear 0s 1 normal;
+		}
+		#ctrl5:checked ~ .content .content-5{
+			animation: sport 0.5s linear 0s 1 normal;
+		}
+		@keyframes sport{
+			from{
+				opacity: 0;
+			}
+			to{
+				opacity: 1;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="nav">
+		<input type="radio" name="radio-set" id="ctrl1" checked>
+		<a href="javascript:;"><i class="iconfont icon-home"></i>Home</a>
+		<input type="radio" name="radio-set" id="ctrl2">
+		<a href="javascript:;"><i class="iconfont icon-fuwu"></i>Service</a>
+		<input type="radio" name="radio-set" id="ctrl3">
+		<a href="javascript:;"><i class="iconfont icon-aboutus"></i>About</a>
+		<input type="radio" name="radio-set" id="ctrl4">
+		<a href="javascript:;"><i class="iconfont icon-team"></i>Team</a>
+		<input type="radio" name="radio-set" id="ctrl5">
+		<a href="javascript:;"><i class="iconfont icon-contact"></i>Contact</a>
+		<div class="content">
+			<div class="content-1">第一页</div>
+			<div class="content-2">第二页</div>
+			<div class="content-3">第三页</div>
+			<div class="content-4">第四页</div>
+			<div class="content-5">第五页</div>
+		</div>
+	</div>
+</body>
+</html>
