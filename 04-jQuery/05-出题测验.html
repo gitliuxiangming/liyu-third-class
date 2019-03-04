@@ -8,59 +8,30 @@
 			margin: 0;
 			padding: 0;
 		}
-		#intro{
-			width: 400px;
-			height: 400px;
-			border: 1px solid #000;
-			margin:20px auto;
-		}
-		.head{
+		.box{
 			width: 100px;
 			height: 100px;
-			background: black;
-			margin-top: 10px;
+			background: red;
+			position: absolute;
 		}
 	</style>
 </head>
 <body>
-	<div id="intro">
-		<div class="head"></div>
-		<div class="head"></div>
-		<div class="head"></div>
-	</div>
-	<div id="intro">
-		<div class="head"></div>
-		<div class="head"></div>
-		<div class="head"></div>
-	</div>
-	<div id="intro">
-		<div class="head"></div>
-		<div class="head"></div>
-		<div class="head"></div>
-	</div>
+	<button>按钮一</button>
+	<button>按钮二</button>
+	<div class="box"></div>
+
 </body>
 <script type="text/javascript" src="jQuery-files/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="js/setColor.js"></script>
 <script>
-	$(function(){
-	   // $('div').on('mouseenter',function(){
-	   // 		$(this).css({
-	   // 			background:"red"
-	   // 		})
-	   // })
-	   //  $('div').on('mouseleave',function(){
-	   // 		$(this).css({
-	   // 			background:"blue"
-	   // 		})
-	   // })
-	   $('div').hover(function(){
-	   		$(this).css({
-    			background:"red"
-    		})
-	   },function(){
-	   		$(this).css({
-    			background:"blue"
-    		})
-	   })
-	});
+	
+	$('button').eq(0).on('click',function(){
+		$('.box').css({top:100,left:100})
+	})
+	$('button').eq(1).on('click',function(){
+		$('.box').css({right:100,bottom:100})
+	})
+	
 </script>
 </html>
