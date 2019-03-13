@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01-拖拽.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 400px;
+			height: 400px;
+			background: #ccc;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			margin-top: -200px;
+			margin-left: -200px;
+		}
+		.son{
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="father"></div>
+	<div class="son" draggable=true></div>
+</body>
+<script type="text/javascript" src="jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+
+		$('.father')
+		.on('drop',function(){
+			$(this).append($('.son'));
+		})
+		.on('dragover',function(ev){
+			ev.preventDefault();
+		});
+		$('.son').on('dragend',function(){
+			setTimeout(function(){
+				alert('已完成拖拽')
+			},10)
+			
+		})
+	});
+</script>
+</html>

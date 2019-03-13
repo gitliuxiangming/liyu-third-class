@@ -17,21 +17,42 @@
 	</style>
 </head>
 <body>
-	<button>按钮一</button>
-	<button>按钮二</button>
 	<div class="box"></div>
 
 </body>
 <script type="text/javascript" src="jQuery-files/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="js/setColor.js"></script>
 <script>
-	
-	$('button').eq(0).on('click',function(){
-		$('.box').css({top:100,left:100})
-	})
-	$('button').eq(1).on('click',function(){
-		$('.box').css({right:100,bottom:100})
-	})
+	/*
+	var length = 10;
+	 function fn() {
+		console.log(this.length);
+	 }
+	 var obj = {
+	 	length: 5,
+	 	method: function(fn) {
+	 		fn();
+	 		arguments[0]();
+	 	}
+	};
+	obj.method(fn, 1);  
+	*/
+	function JSClass() {
+		 this.m_Text = 'division element';
+		 this.m_Element = document.createElement('div');
+		 this.m_Element.innerHTML = this.m_Text;
+		 this.m_Element.addEventListener('click', this.func); 
+		 // this.m_Element.onclick = this.func;
+	}
+	JSClass.prototype.Render = function() {
+	 	document.body.appendChild(this.m_Element);
+	}
+	JSClass.prototype.func = function() {
+		console.log(this.m_Text);
+	};
+	var jc = new JSClass();
+	jc.Render(); // add div
+	jc.func(); // 输出 division element
+	//click 添加的 div 元素 division element 会输出 underfined，为什么？
 	
 </script>
 </html>

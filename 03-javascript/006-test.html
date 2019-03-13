@@ -18,25 +18,16 @@
 	<button id="btn">登陆</button>
 </body>
 <script>
-	var oBtn = document.getElementById('btn')
-	function craeteDiv(){
-		var oDiv = document.createElement('div');
-		oDiv.className = 'login';
-		document.body.appendChild(oDiv);
-		return oDiv;
-	}
-	function getSingle(fn){
-		var obj =null;
-		return function(){
-			if(!obj){
-				obj = fn();
-			}
-			return obj;
+		var iArray = [];
+		function getRandom(min, max){ 
+		 	return Math.floor(min+(max-min)*Math.random());
+		} 
+		for(var i=0; i<10; i++){
+		 	iArray.push(getRandom(10,100)); 
 		}
-	}
-	var danli = getSingle(craeteDiv);
-	oBtn.onclick = function(){
-		danli()
-	}
+ 		iArray.sort(function(n1,n2){
+ 			return n1-n2;
+ 		});
+ 		console.log(iArray)
 </script>
 </html>

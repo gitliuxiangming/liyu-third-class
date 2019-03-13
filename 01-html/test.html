@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test.html</title>
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" media="screen" href="screen.css">
+<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 1000px;
+			height: 600px;
+			border: 1px solid #000;
+			margin:20px auto;
+			display: flex;
+			flex-wrap: wrap; 
+			justify-content:space-between;
+		}
+		.son{
+			width: 100px;
+			height: 100px;
+			line-height: 100px;
+			text-align: center;
+			font-size: 20px;
+			background-color: pink;
+		}
+		.son1{
+			order:9;
+		}
+		.son2{
+			order:8;
+		}
+		.son3{
+			order:7;
+		}
+		.son4{
+			align-self: center;
+			order:6;
+		}
+		.son5{
+			align-self: center;
+			order:5;
+		}
+		.son6{
+			align-self: center;
+			order:4;
+		}	
+		.son7{
+			align-self: flex-end;
+			order:3;
+		}	
+		.son8{
+			align-self: flex-end;
+			order:2;
+		}	
+		.son9{
+			align-self: flex-end;
+			order:1;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son son1">son1</div>
+		<div class="son son2">son2</div>
+		<div class="son son3">son3</div>
+		<div class="son son4">son4</div>
+		<div class="son son5">son5</div>
+		<div class="son son6">son6</div>
+		<div class="son son7">son7</div>
+		<div class="son son8">son8</div>
+		<div class="son son9">son9</div>
+	</div>
+</body>
+</html>
