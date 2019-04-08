@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册页面</title>
+	<style>
+		textarea{
+			resize: none;
+		}
+	</style>
+</head>
+<body>
+	<form action="http:www.kuazhu.com/">
+		<p>
+		 	<label for="username">用户名：</label>
+			<input type="text" name="username" id="username" placeholder="请输入用户名" list="usname">
+			<datalist id="usname">
+				<option >TOM</option>
+				<option >BOB</option>
+				<option >LUCY</option>
+				<option >LILY</option>
+				<option >JACK</option>
+			</datalist>
+		</p>
+		<p>
+			<label for="password">密码：</label>
+			<input type="password" name="password" id="password" placeholder="请输入密码">
+		</p>
+		<p>
+			<label for="email">邮箱：</label>
+			<input type="email" name="email" id="email" placeholder="123456789@qq.com">
+		</p>
+		<p>
+			性别：
+			<input type="radio" name="sex" placeholder="man" checked>男
+			<input type="radio" name="sex" placeholder="women">女
+			<input type="radio" name="sex" placeholder="baomi">保密
+		</p>
+		<p>
+		    爱好：
+		    <input type="checkbox" name="hobby" checked>篮球
+		    <input type="checkbox" name="hobby" >棒球
+		    <input type="checkbox" name="hobby" >足球
+		    <input type="checkbox" name="hobby" >排球
+		</p>
+		<p>
+		    年龄：<input type="number" name="age" placeholder="请输入您的年龄">
+		</p>
+		<p>
+			出生日期：<input type="date" name="birthday" placeholder="birthday">
+		</p>
+		<p>
+			个人主页：<input type="url" name="url" placeholder="请输入你的主页地址">
+		</p>
+		<p>
+			地址：<select name="address" id="address">
+				<optgroup label="直辖市">
+					<option placeholder="bj">北京</option>
+					<option placeholder="sh">上海</option>
+					<option placeholder="tn">天津</option>
+					<option placeholder="cq">重庆</option>
+				</optgroup>
+				<optgroup label=省份>
+					<option >河北</option>
+					<option   selected	>河南</option>
+					<option >湖北</option>
+					<option >湖南</option>
+					<option >广东</option>
+					<option >广西</option>
+					<option >江西</option>
+					<option >山西</option>
+					<option >陕西</option>
+					<option >甘肃</option>
+					<option >四川</option>
+					<option >江苏</option>
+					<option >山东</option>
+					<option >黑龙江</option>
+					<option >吉林</option>
+					<option >辽宁</option>
+					<option >安徽</option>
+					<option >内蒙古</option>
+					<option >新疆</option>
+				</optgroup>
+			</select>
+			<select name="address" id="address">
+			    <optgroup label="市级">
+			    	<option>焦作市</option>
+			    	<option>郑州市</option>
+			    	<option>信阳市</option>
+			    	<option selected>许昌市</option>
+			    	<option>漯河市</option>
+			    	<option>安阳市</option>
+			    	<option>南阳市</option>
+			    	<option>新乡市</option>
+			    </optgroup>
+			</select>
+			<select name="address" id="">
+				 <optgroup label="区级">
+			    	<option selected>魏都区</option>
+			    	<option>鄢陵</option>
+			    	<option>禹州</option>
+			    </optgroup>
+			</select>
+		</p>
+		<p>
+			喜欢的颜色：<input type="color" name="color">
+		</p>
+		<p>
+			自我介绍：<textarea name="intr" id="intr" cols="30" rows="10"></textarea>
+		</p>
+		<p>
+			<input type="reset" name="chongzhi" placeholder="清空">
+			<input type="submit" name="finish" placeholder="注册">
+		</p>
+	</form>
+</body>
+</html>
