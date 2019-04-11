@@ -6,13 +6,14 @@ class Item extends Component{
 		super(props);
 		this.handleDelete=this.handleDelete.bind(this)
 	}
+	/*
 	static getDerivedStateFromProps(nextProps,prevState){
 		return{
 			list:['aa','bb']
 		}
 	}
 	shouldComponentUpdate(nextProps, nextState){
-		console.log('跟新组件在render之前:：,shouldComponentUpdate',nextProps,nextState);
+		console.log('更新组件在render之前:：,shouldComponentUpdate',nextProps,nextState);
 		return true
 	}
 	getSnapshotBeforeUpdate(prevProps, prevState){
@@ -25,13 +26,14 @@ class Item extends Component{
 	componentWillUnmount(){
 		console.log('完成拆装后执行:：,componentWillUnmount');
 	}
+	*/
 	handleDelete(){
 		const { handleDelete,index } = this.props;
 		handleDelete(index)
 	}
 	
 	render(){
-		const { content,test } = this.props;
+		const { content,test,aaa } = this.props;
 		return	(
 					<li onClick={this.handleDelete}>
 						{content}
@@ -44,7 +46,8 @@ class Item extends Component{
 Item.proptypes = {
 	index:propTypes.number,
 	content:propTypes.string.isRequired,
-	handleDelete:propTypes.func			
+	handleDelete:propTypes.func	,
+	aaa:propTypes.string.isRequired,
 }
 
 
